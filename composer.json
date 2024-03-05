@@ -1,0 +1,48 @@
+{
+  "name": "laraserve-tech/laravel-trino-connector",
+  "description": "A Trino data connector built for the Laravel PHP framework",
+  "license": "MIT",
+  "authors": [{
+    "name": "Gustav Trenwith",
+    "email": "gtrenwith@gmail.com"
+  }],
+  "minimum-stability": "dev",
+  "keywords": [
+    "laravel",
+    "trino"
+  ],
+  "require": {
+    "php": ">=8.1",
+    "illuminate/support": "10.x-dev",
+    "guzzlehttp/guzzle": "7.9.x-dev",
+    "fig/http-message-util": "^1.1@dev"
+  },
+  "require-dev": {
+    "pestphp/pest": "^2.34",
+    "phpmd/phpmd": "^2.15"
+  },
+  "autoload": {
+    "psr-4": {
+      "LaraserveTech\\": "src/"
+    }
+  },
+  "scripts": {
+    "test": "./vendor/bin/pest",
+    "phpmd": "./vendor/bin/phpmd src/ text rulesets.xml"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "LaraserveTech\\TrinoConnectorServiceProvider"
+      ],
+      "aliases": {
+        "Trino": "LaraserveTech\\TrinoFacade"
+      }
+    }
+  }
+}
